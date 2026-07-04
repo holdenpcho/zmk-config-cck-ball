@@ -1,0 +1,13 @@
+if SHIELD_CCK_BALL_LEFT
+
+config ZMK_KEYBOARD_NAME
+    default "CCK BALL"
+
+endif
+
+if SHIELD_CCK_BALL_RIGHT
+
+config ZMK_KEYBOARD_NAME
+    default "CCK BALL"
+
+endif
