@@ -1,0 +1,15 @@
+file_format: "1"
+id: cck_ball
+name: CCK BALL
+type: shield
+url: ""
+requires: [pro_micro]
+features:
+  - keys
+  - encoders
+  - pointing
+siblings:
+  - id: cck_ball_left
+    name: CCK BALL Left
+  - id: cck_ball_right
+    name: CCK BALL Right
