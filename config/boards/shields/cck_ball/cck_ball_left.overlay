@@ -6,8 +6,20 @@
 
 #include "cck_ball.dtsi"
 
+// Restore the matrix wiring for the left side
+&kscan0 {
+	col-gpios
+		= <&gpio1 15 GPIO_ACTIVE_HIGH>
+        , <&gpio0 9 GPIO_ACTIVE_HIGH>
+        , <&gpio0 10 GPIO_ACTIVE_HIGH>
+        , <&gpio1 11 GPIO_ACTIVE_HIGH>
+        , <&gpio1 4 GPIO_ACTIVE_HIGH>
+        , <&gpio1 6 GPIO_ACTIVE_HIGH>
+		;
+};
+
 /* Explicitly disable the SPI0 bus on the left side 
- * so it doesn't try to initialize hardware it doesn't have.
+ * so it doesn't try to initialize trackball hardware it doesn't have.
  */
 &spi0 {
     status = "disabled";
