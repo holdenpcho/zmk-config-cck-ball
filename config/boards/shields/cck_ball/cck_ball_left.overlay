@@ -6,19 +6,18 @@
 
 #include "cck_ball.dtsi"
 
-&kscan0 {
-	col-gpios
-		= <&gpio1 15 GPIO_ACTIVE_HIGH>
-        , <&gpio0 9 GPIO_ACTIVE_HIGH>
-        , <&gpio0 10 GPIO_ACTIVE_HIGH>
-        , <&gpio1 11 GPIO_ACTIVE_HIGH>
-        , <&gpio1 4 GPIO_ACTIVE_HIGH>
-        , <&gpio1 6 GPIO_ACTIVE_HIGH>
-		;
+/* * Explicitly disable the trackball and its SPI bus on the left side 
+ * to prevent background kernel panics inherited from the dtsi file.
+ */
+&spi0 {
+    status = "disabled";
 };
 
-//RGB bus
+&trackball {
+    status = "disabled";
+};
 
+// RGB bus configuration for the Left side
 &pinctrl {
     spi3_default: spi3_default {
         group1 {
@@ -46,11 +45,11 @@
         compatible = "worldsemi,ws2812-spi";
 
         /* SPI */
-        reg = <0>; /* ignored, but necessary for SPI bindings */
+        reg = <0>; 
         spi-max-frequency = <4000000>;
 
         /* WS2812 */
-        chain-length = <29>; /* number of LEDs */
+        chain-length = <29>; 
         spi-one-frame = <0x70>;
         spi-zero-frame = <0x40>;
         color-mapping = <LED_COLOR_ID_GREEN
@@ -59,7 +58,7 @@
     };
 };
 
-// enable left encoder
+// Enable left encoder natively
 &left_encoder {
-	status = "okay";
+    status = "okay";
 };
