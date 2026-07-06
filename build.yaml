@@ -3,3 +3,5 @@ include:
     shield: cck_ball_left
   - board: nice_nano_v2
     shield: cck_ball_right
+  - board: nice_nano_v2
+    shield: settings_reset
