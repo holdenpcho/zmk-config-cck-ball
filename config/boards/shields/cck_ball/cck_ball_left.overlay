@@ -6,14 +6,10 @@
 
 #include "cck_ball.dtsi"
 
-/* * Explicitly disable the trackball and its SPI bus on the left side 
- * to prevent background kernel panics inherited from the dtsi file.
+/* Explicitly disable the SPI0 bus on the left side 
+ * so it doesn't try to initialize hardware it doesn't have.
  */
 &spi0 {
-    status = "disabled";
-};
-
-&trackball {
     status = "disabled";
 };
 
